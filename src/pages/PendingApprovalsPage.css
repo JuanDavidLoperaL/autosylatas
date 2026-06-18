@@ -1,0 +1,494 @@
+:root {
+  --gold: #C9A027;
+  --gold-dark: #8B6914;
+  --black: #111111;
+  --bg: #F5F2EC;
+  --text: #2C2A22;
+  --text-soft: #7A7060;
+  --border: #E2D9C8;
+  --gold-tint: #FBF6EB;
+  --green: #16a34a;
+  --red-soft: #dc2626;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+.approvals-page {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text);
+}
+
+/* ── HEADER ── */
+.approvals-header {
+  background: var(--black);
+  border-bottom: 3px solid var(--gold);
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.approvals-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.approvals-logo { height: 40px; width: auto; }
+
+.approvals-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.approvals-brand span:first-child {
+  color: var(--gold);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.approvals-brand span:last-child {
+  color: #777;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.approvals-header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── ROLE BADGE ── */
+.role-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.role-owner    { background: var(--gold);  color: var(--black); }
+.role-admin    { background: #1e3a5f;      color: #93c5fd; }
+.role-vendedor { background: #14532d;      color: #86efac; }
+.role-default  { background: #374151;      color: #9ca3af; }
+
+.btn-back {
+  background: transparent;
+  border: 1px solid #444;
+  color: #aaa;
+  padding: 7px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-back:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* ── MAIN ── */
+.approvals-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+.approvals-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.approvals-title-row h1 {
+  font-size: 1.5rem;
+  margin-bottom: 4px;
+}
+
+.approvals-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-soft);
+}
+
+.pending-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--black);
+  border: 1px solid var(--gold-dark);
+  border-radius: 10px;
+  padding: 10px 20px;
+  min-width: 90px;
+}
+
+.pending-count {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.pending-label {
+  font-size: 0.7rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* ── TABS ── */
+.approvals-tabs {
+  display: flex;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 24px;
+  gap: 4px;
+}
+
+.approvals-tabs button {
+  background: none;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-soft);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+  transition: color 0.2s;
+}
+
+.approvals-tabs button.active {
+  color: var(--text);
+  border-bottom-color: var(--gold);
+}
+
+.tab-badge {
+  background: var(--gold);
+  color: var(--black);
+  border-radius: 12px;
+  padding: 2px 7px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+/* ── EMPTY ── */
+.approvals-empty {
+  text-align: center;
+  padding: 60px 24px;
+  color: var(--text-soft);
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+/* ── APPROVAL LIST ── */
+.approvals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.approval-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.approval-card.rejected {
+  opacity: 0.75;
+}
+
+.approval-card-top {
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.approval-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.type-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.type-create { background: #dcfce7; color: #15803d; }
+.type-edit   { background: #dbeafe; color: #1d4ed8; }
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.status-approved { background: #dcfce7; color: #15803d; }
+.status-rejected { background: #fef2f2; color: var(--red-soft); }
+
+.approval-product {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.approval-product strong {
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.approval-brand {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  background: var(--gold-tint);
+  border: 1px solid var(--gold-dark);
+  color: var(--gold-dark);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 700;
+}
+
+.approval-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.83rem;
+  color: var(--text-soft);
+}
+
+.approval-review-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  background: var(--bg);
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.rejection-reason {
+  color: var(--red-soft) !important;
+  font-style: italic;
+}
+
+/* ── DATA PREVIEW ── */
+.approval-data {
+  padding: 16px 24px;
+  background: var(--bg);
+}
+
+.data-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+}
+
+.data-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.83rem;
+}
+
+.data-row-full {
+  grid-column: 1 / -1;
+}
+
+.data-key {
+  color: var(--text-soft);
+  font-weight: 600;
+  min-width: 70px;
+  flex-shrink: 0;
+}
+
+.data-val {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ── APPROVAL ACTIONS ── */
+.approval-actions {
+  padding: 14px 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+}
+
+.btn-reject {
+  background: transparent;
+  border: 1.5px solid #fca5a5;
+  color: var(--red-soft);
+  padding: 9px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.btn-reject:hover:not(:disabled) { background: #fef2f2; }
+.btn-reject:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-approve {
+  background: var(--black);
+  color: var(--gold);
+  border: 1.5px solid var(--gold-dark);
+  padding: 9px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.btn-approve:hover:not(:disabled) {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+.btn-approve:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── REJECT MODAL ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 24px;
+}
+
+.reject-modal {
+  background: white;
+  border-radius: 14px;
+  padding: 32px;
+  max-width: 440px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+}
+
+.reject-modal h3 {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.reject-modal p {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.5;
+}
+
+.reject-modal label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--text);
+}
+
+.reject-modal textarea {
+  padding: 10px 13px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.93rem;
+  color: var(--text);
+  background: var(--bg);
+  outline: none;
+  font-family: inherit;
+  resize: vertical;
+  transition: border-color 0.2s;
+}
+
+.reject-modal textarea:focus {
+  border-color: var(--gold);
+}
+
+.reject-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+.btn-cancel-modal {
+  background: transparent;
+  border: 1.5px solid var(--border);
+  color: var(--text-soft);
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.btn-cancel-modal:hover { border-color: var(--text-soft); color: var(--text); }
+
+.btn-reject-confirm {
+  background: var(--red-soft);
+  color: white;
+  border: none;
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: inherit;
+  transition: opacity 0.2s;
+}
+
+.btn-reject-confirm:hover:not(:disabled) { opacity: 0.88; }
+.btn-reject-confirm:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .approvals-main { padding: 20px 16px 48px; }
+  .approvals-header { padding: 0 16px; height: 56px; }
+  .approvals-logo { height: 34px; }
+  .btn-back { font-size: 0.78rem; padding: 6px 10px; }
+  .approval-card-top { padding: 16px; }
+  .approval-data { padding: 12px 16px; }
+  .approval-actions { padding: 12px 16px; }
+  .data-grid { grid-template-columns: 1fr; }
+  .approvals-title-row { flex-wrap: wrap; gap: 12px; }
+}

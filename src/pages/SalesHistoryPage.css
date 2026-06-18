@@ -1,0 +1,724 @@
+/* ── CSS Variables (shared with project) ───────────────────────────────────── */
+:root {
+  --gold: #C9A027;
+  --gold-light: #E8C048;
+  --gold-dark: #8B6914;
+  --black: #111111;
+  --bg: #F5F2EC;
+  --bg-card: #FFFFFF;
+  --text: #2C2A22;
+  --text-soft: #7A7060;
+  --border: #E2D9C8;
+  --gold-tint: #FBF6EB;
+}
+
+/* ── Page shell ─────────────────────────────────────────────────────────────── */
+.sh-page {
+  min-height: 100vh;
+  background: var(--bg);
+  font-family: 'Segoe UI', sans-serif;
+  color: var(--text);
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+.sh-header {
+  background: var(--black);
+  border-bottom: 3px solid var(--gold);
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.sh-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sh-logo {
+  height: 44px;
+  width: auto;
+}
+
+.sh-brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.sh-brand span:first-child {
+  color: var(--gold);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.sh-brand span:last-child {
+  color: #777;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.sh-header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.sh-user-email {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.sh-btn-back {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.sh-btn-back:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.sh-btn-logout {
+  background: transparent;
+  border: 1px solid #444;
+  color: #aaa;
+  padding: 6px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.sh-btn-logout:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* Role badges (reuse same names as Dashboard) */
+.role-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.role-owner    { background: var(--gold);  color: var(--black); }
+.role-admin    { background: #1e3a5f;      color: #93c5fd; }
+.role-vendedor { background: #14532d;      color: #86efac; }
+.role-default  { background: #374151;      color: #9ca3af; }
+
+/* ── Main content ───────────────────────────────────────────────────────────── */
+.sh-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 36px 24px 60px;
+}
+
+/* ── Date navigation ────────────────────────────────────────────────────────── */
+.sh-date-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--black);
+  border: 1px solid var(--gold-dark);
+  border-radius: 14px;
+  padding: 16px 24px;
+  margin-bottom: 28px;
+}
+
+.sh-nav-btn {
+  background: transparent;
+  border: 1px solid #444;
+  color: var(--gold);
+  width: 38px;
+  height: 38px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sh-nav-btn:hover:not(:disabled) {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+}
+
+.sh-nav-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.sh-date-center {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex: 1;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.sh-date-label {
+  color: var(--gold);
+  font-size: 1.05rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.sh-today-btn {
+  background: rgba(201,160,39,0.13);
+  border: 1px solid var(--gold-dark);
+  color: var(--gold);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sh-today-btn:hover {
+  background: var(--gold);
+  color: var(--black);
+}
+
+/* ── Summary stat cards ─────────────────────────────────────────────────────── */
+.sh-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+.sh-stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 18px;
+  text-align: center;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sh-stat-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 4px 16px rgba(201,160,39,0.1);
+}
+
+.sh-stat-number {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--gold);
+  line-height: 1.1;
+  margin-bottom: 6px;
+  word-break: break-all;
+}
+
+.sh-stat-cash     { color: #22c55e; }
+.sh-stat-transfer { color: #3b82f6; }
+
+.sh-stat-label {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── Section label ──────────────────────────────────────────────────────────── */
+.sh-section-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sh-section-label h3 {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sh-section-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Empty state ────────────────────────────────────────────────────────────── */
+.sh-empty {
+  text-align: center;
+  color: var(--text-soft);
+  padding: 48px 0;
+  font-size: 0.95rem;
+}
+
+/* ── Sales list ─────────────────────────────────────────────────────────────── */
+.sh-sales-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sh-sale-row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto auto auto auto;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  cursor: pointer;
+  transition: border-color 0.18s, box-shadow 0.18s, background 0.15s;
+}
+
+.sh-sale-row:hover {
+  border-color: var(--gold);
+  background: var(--gold-tint);
+  box-shadow: 0 2px 12px rgba(201,160,39,0.1);
+}
+
+.sh-sale-time {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.sh-sale-products {
+  font-size: 0.9rem;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sh-warranty-icon {
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.sh-sale-total {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.sh-payment-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sh-payment-efectivo {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.sh-payment-transferencia {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.sh-payment-lg {
+  font-size: 0.85rem;
+  padding: 5px 14px;
+}
+
+.sh-sale-seller {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  white-space: nowrap;
+}
+
+/* ── Modal overlay ──────────────────────────────────────────────────────────── */
+.sh-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 17, 17, 0.65);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 20px;
+}
+
+.sh-modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 760px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 32px 28px 28px;
+  position: relative;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.sh-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.sh-modal-close:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+/* Modal header */
+.sh-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.sh-modal-invoice {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.5px;
+}
+
+.sh-modal-datetime {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin-top: 3px;
+}
+
+/* Meta info */
+.sh-modal-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+  font-size: 0.88rem;
+  color: var(--text);
+}
+
+.sh-meta-label {
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+/* Products table */
+.sh-modal-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.sh-modal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.87rem;
+}
+
+.sh-modal-table thead tr {
+  background: var(--black);
+}
+
+.sh-modal-table thead th {
+  padding: 10px 14px;
+  text-align: left;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.sh-modal-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+.sh-modal-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.sh-modal-table tbody tr:hover {
+  background: var(--gold-tint);
+}
+
+.sh-modal-table td {
+  padding: 10px 14px;
+  color: var(--text);
+}
+
+.sh-col-num {
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+/* Totals */
+.sh-modal-totals {
+  background: var(--gold-tint);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.sh-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text);
+  padding: 4px 0;
+}
+
+.sh-total-discount span:last-child {
+  color: #dc2626;
+}
+
+.sh-total-final {
+  border-top: 1px solid var(--border);
+  margin-top: 8px;
+  padding-top: 10px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.sh-total-final span:last-child {
+  color: var(--gold);
+}
+
+.sh-total-payment {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+}
+
+/* Warranties */
+.sh-modal-warranties {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+}
+
+.sh-modal-section-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-soft);
+  margin-bottom: 10px;
+}
+
+.sh-warranty-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.87rem;
+  color: var(--text);
+}
+
+.sh-warranty-row:last-child {
+  border-bottom: none;
+}
+
+.sh-warranty-name {
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.sh-warranty-dates,
+.sh-warranty-hours {
+  color: var(--text-soft);
+}
+
+/* Notes */
+.sh-modal-notes {
+  background: var(--gold-tint);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 20px;
+  font-size: 0.88rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+/* Print button */
+.sh-btn-print {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--black);
+  color: var(--gold);
+  border: 2px solid var(--gold-dark);
+  padding: 14px 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  transition: all 0.2s;
+}
+
+.sh-btn-print:hover {
+  background: var(--gold);
+  color: var(--black);
+  border-color: var(--gold);
+  box-shadow: 0 4px 16px rgba(201,160,39,0.3);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 700px) {
+  .sh-header {
+    padding: 0 14px;
+    height: 56px;
+  }
+
+  .sh-logo {
+    height: 34px;
+  }
+
+  .sh-user-email {
+    display: none;
+  }
+
+  .sh-main {
+    padding: 20px 14px 40px;
+  }
+
+  .sh-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sh-stat-number {
+    font-size: 1.2rem;
+  }
+
+  .sh-date-nav {
+    padding: 12px 14px;
+  }
+
+  .sh-date-label {
+    font-size: 0.88rem;
+  }
+
+  /* Sales rows: stack on mobile */
+  .sh-sale-row {
+    grid-template-columns: 56px 1fr auto;
+    grid-template-rows: auto auto;
+    row-gap: 6px;
+  }
+
+  .sh-warranty-icon { display: none; }
+
+  .sh-sale-total {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .sh-payment-badge {
+    grid-column: 2 / 4;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .sh-sale-seller {
+    display: none;
+  }
+
+  /* Modal */
+  .sh-modal {
+    padding: 24px 16px 20px;
+    max-height: 92vh;
+  }
+
+  .sh-modal-header {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sh-modal-table {
+    font-size: 0.8rem;
+  }
+
+  .sh-modal-table th,
+  .sh-modal-table td {
+    padding: 8px 10px;
+  }
+
+  .sh-total-final {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .sh-stats {
+    grid-template-columns: 1fr;
+  }
+}
