@@ -25,7 +25,7 @@ export default function DashboardPage() {
 
   // Redirect to login if not authenticated
   useEffect(() => {
-    if (!loading && !user) window.location.href = '/login'
+    if (!loading && !user) navigate('/login')
   }, [loading, user])
 
   // Count pending approvals (only load if admin/owner)
@@ -67,7 +67,7 @@ export default function DashboardPage() {
 
   const handleLogout = async () => {
     await signOut(auth)
-    window.location.href = '/'
+    navigate('/')
   }
 
   if (loading) return null

@@ -1,11 +1,12 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebase/config'
 import logo from '../assets/logo.png'
 import './LoginPage.css'
 
 export default function LoginPage() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -17,7 +18,7 @@ export default function LoginPage() {
     setLoading(true)
     try {
       await signInWithEmailAndPassword(auth, email, password)
-      window.location.href = '/dashboard'
+      navigate('/dashboard')
     } catch {
       setError('Correo o contraseña incorrectos')
     } finally {

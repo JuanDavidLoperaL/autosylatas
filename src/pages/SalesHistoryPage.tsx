@@ -269,7 +269,7 @@ export default function SalesHistoryPage() {
 
   // Auth guard
   useEffect(() => {
-    if (!loading && !user) window.location.href = '/login'
+    if (!loading && !user) navigate('/login')
   }, [loading, user])
 
   // Fetch sales for the selected day

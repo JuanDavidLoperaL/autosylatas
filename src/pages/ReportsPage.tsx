@@ -198,7 +198,7 @@ export default function ReportsPage() {
 
   // ── redirect ──────────────────────────────────────────────────────────────
   useEffect(() => {
-    if (!loading && !user) window.location.href = '/login'
+    if (!loading && !user) navigate('/login')
   }, [loading, user])
 
   // ── today's sales ─────────────────────────────────────────────────────────
