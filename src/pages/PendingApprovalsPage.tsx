@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
-  collection, onSnapshot, doc, updateDoc, setDoc,
+  collection, onSnapshot, doc, updateDoc,
   serverTimestamp, Timestamp, writeBatch
 } from 'firebase/firestore'
 import { db } from '../firebase/config'
@@ -272,13 +272,13 @@ export default function PendingApprovalsPage() {
                         <span className="data-val">{change.data.available ? 'Sí' : 'No'}</span>
                       </div>
                     )}
-                    {change.data.compatibleModels && (
+                    {Boolean(change.data.compatibleModels) && (
                       <div className="data-row data-row-full">
                         <span className="data-key">Modelos</span>
                         <span className="data-val">{String(change.data.compatibleModels)}</span>
                       </div>
                     )}
-                    {change.data.notes && (
+                    {Boolean(change.data.notes) && (
                       <div className="data-row data-row-full">
                         <span className="data-key">Notas</span>
                         <span className="data-val">{String(change.data.notes)}</span>

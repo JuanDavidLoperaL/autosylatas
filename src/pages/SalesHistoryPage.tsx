@@ -68,14 +68,6 @@ const invoiceId = (id: string) => id.slice(-8).toUpperCase()
 
 const emailShort = (email: string) => email.split('@')[0]
 
-const isToday = (date: Date) => {
-  const now = new Date()
-  return (
-    date.getFullYear() === now.getFullYear() &&
-    date.getMonth() === now.getMonth() &&
-    date.getDate() === now.getDate()
-  )
-}
 
 // ── PDF generation ───────────────────────────────────────────────────────────
 
