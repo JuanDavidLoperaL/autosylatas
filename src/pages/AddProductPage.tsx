@@ -8,21 +8,20 @@ import './AddProductPage.css'
 
 const LINEAS_SUGERIDAS = [
   // Renault
-  'Renault Duster', 'Renault Sandero', 'Renault Logan', 'Renault Kwid',
-  'Renault Clio', 'Renault Symbol', 'Renault Megane', 'Renault Koleos', 'Renault Captur',
+  'Renault 9', 'Renault Clio Face 1', 'Renault Symbol 8 Valvulas', 'Renault Symbol 16 Valvulas', 'Renault Duster', 'Renault Sandero 8 Valvulas', 'Renault Sandero 16 Valvulas', 'Renault Logan', 'Renault Kwid',
+  'Renault Clio', 'Renault Symbol', 'Renault Symbol 2', 'Renault Megane', 'Renault Koleos', 'Renault Captur',
   // Mazda
-  'Mazda 2', 'Mazda 3', 'Mazda 6', 'Mazda CX-3', 'Mazda CX-5', 'Mazda CX-30', 'Mazda BT-50',
+  'Mazda Demio', 'Mazda 323', 'Mazda 2', 'Mazda 3', 'Mazda 6', 'Mazda CX-3', 'Mazda CX-5', 'Mazda CX-30', 'Mazda BT-50',
   // Chevrolet
-  'Chevrolet Spark', 'Chevrolet Aveo', 'Chevrolet Cruze', 'Chevrolet Tracker',
-  'Chevrolet Equinox', 'Chevrolet Captiva', 'Chevrolet Colorado', 'Chevrolet Onix',
+  'Chevrolet Sail', 'Chevrolet Tico'. 'Chevrolet 7/24', 'Chevrolet Cronos', 'Chevrolet Sprint', 'Chevrolet Spark', 'Chevrolet Aveo', 'Chevrolet Corsa',
   // Toyota
   'Toyota Corolla', 'Toyota Hilux', 'Toyota Fortuner', 'Toyota RAV4',
   'Toyota Prado', 'Toyota Yaris', 'Toyota Land Cruiser',
   // Hyundai
-  'Hyundai Tucson', 'Hyundai Santa Fe', 'Hyundai Creta',
-  'Hyundai Grand i10', 'Hyundai Accent', 'Hyundai Ioniq',
+  'Hyundai Berna', 'Hyundai Atos', 'Hyundai Tucson',
+  'Hyundai i10', 'Hyundai Grand i10', 'Hyundai Accent', 'Hyundai i25',
   // Kia
-  'Kia Picanto', 'Kia Rio', 'Kia Sportage', 'Kia Sorento', 'Kia Stinger',
+  'Kia ION', 'Kia Sephia', 'Kia Morning', 'Kia Rio 5.5', 'Kia Picanto', 'Kia Rio', 'Kia Sportage', 'Kia Sorento', 'Kia Stinger',
   // Ford
   'Ford EcoSport', 'Ford Explorer', 'Ford Escape', 'Ford F-150', 'Ford Ranger', 'Ford Fiesta',
   // Nissan
@@ -35,17 +34,9 @@ const LINEAS_SUGERIDAS = [
   // Mitsubishi
   'Mitsubishi Lancer', 'Mitsubishi Outlander', 'Mitsubishi L200', 'Mitsubishi Montero',
   // Suzuki
-  'Suzuki Swift', 'Suzuki Baleno', 'Suzuki Grand Vitara', 'Suzuki Jimny', 'Suzuki S-Presso',
-  // Jeep
-  'Jeep Cherokee', 'Jeep Wrangler', 'Jeep Compass', 'Jeep Grand Cherokee',
-  // BMW
-  'BMW Serie 3', 'BMW Serie 5', 'BMW X3', 'BMW X5', 'BMW X1',
-  // Mercedes-Benz
-  'Mercedes-Benz Clase C', 'Mercedes-Benz Clase E', 'Mercedes-Benz GLC', 'Mercedes-Benz GLA',
-  // Peugeot
-  'Peugeot 208', 'Peugeot 308', 'Peugeot 2008', 'Peugeot 3008',
-  // Subaru
-  'Subaru Forester', 'Subaru Outback', 'Subaru XV',
+  'Suzuki Swift', 'Suzuki Alto', 'Suzuki Grand Vitara', 'Suzuki Jimny', 'Suzuki S-Presso',
+  // Jac
+  'Jac J13',
   'Otra',
 ]
 
@@ -61,7 +52,7 @@ const parseCOP = (value: string): number =>
   Number(value.replace(/\./g, '').replace(/,/g, ''))
 
 const toTitleCase = (str: string): string =>
-  str.trim().replace(/\b\w/g, c => c.toUpperCase())
+  str.replace(/\b\w/g, c => c.toUpperCase())
 
 const EMPTY_FORM = {
   brand: '',
