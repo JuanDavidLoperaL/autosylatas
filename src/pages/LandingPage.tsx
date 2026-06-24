@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './LandingPage.css'
 import logo from '../assets/logo.png'
 
@@ -20,7 +21,7 @@ export default function LandingPage() {
             <a href="#nosotros">Nosotros</a>
             <a href="#ubicacion">Ubicación</a>
             <a href="#contacto">Contacto</a>
-            <a href="/login" className="btn-login">Ingresar</a>
+            <Link to="/login" className="btn-login">Ingresar</Link>
           </nav>
 
           {/* Hamburger mobile */}
@@ -40,7 +41,7 @@ export default function LandingPage() {
           <a href="#nosotros" onClick={closeMenu}>Nosotros</a>
           <a href="#ubicacion" onClick={closeMenu}>Ubicación</a>
           <a href="#contacto" onClick={closeMenu}>Contacto</a>
-          <a href="/login" onClick={closeMenu}>Ingresar →</a>
+          <Link to="/login" onClick={closeMenu}>Ingresar →</Link>
         </div>
       </header>
 

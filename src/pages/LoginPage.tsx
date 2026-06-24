@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import { auth } from '../firebase/config'
 import logo from '../assets/logo.png'
@@ -27,7 +28,7 @@ export default function LoginPage() {
   return (
     <div className="login-page">
       <div className="login-box">
-        <a href="/" className="back-link">← Volver al inicio</a>
+        <Link to="/" className="back-link">← Volver al inicio</Link>
         <img src={logo} alt="Autos y Latas" className="login-logo" />
         <h2>Acceso interno</h2>
         <form onSubmit={handleLogin}>
