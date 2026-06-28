@@ -195,10 +195,10 @@ export default function WarrantiesPage() {
                       {hasAnyWarranty(sale) && (
                         <span className="sale-warranty-badge">🛡️ Con garantía</span>
                       )}
-                      <div className="sale-total">${sale.total.toLocaleString('es-CO')}</div>
-                      {sale.totalDescuento > 0 && (
+                      <div className="sale-total">${(sale.total ?? 0).toLocaleString('es-CO')}</div>
+                      {(sale.totalDescuento ?? 0) > 0 && (
                         <div className="sale-discount-note">
-                          Descuento: -${sale.totalDescuento.toLocaleString('es-CO')}
+                          Descuento: -${(sale.totalDescuento ?? 0).toLocaleString('es-CO')}
                         </div>
                       )}
                     </div>
@@ -214,17 +214,17 @@ export default function WarrantiesPage() {
                         </div>
 
                         <div className="sale-item-pricing">
-                          {item.discount > 0 ? (
+                          {(item.discount ?? 0) > 0 ? (
                             <>
-                              <span className="price-original">${item.price.toLocaleString('es-CO')}</span>
-                              <span className="price-discount">-${item.discount.toLocaleString('es-CO')}</span>
-                              <span className="price-final">${item.finalPrice.toLocaleString('es-CO')}</span>
+                              <span className="price-original">${(item.price ?? 0).toLocaleString('es-CO')}</span>
+                              <span className="price-discount">-${(item.discount ?? 0).toLocaleString('es-CO')}</span>
+                              <span className="price-final">${(item.finalPrice ?? item.price ?? 0).toLocaleString('es-CO')}</span>
                             </>
                           ) : (
-                            <span className="price-final">${item.finalPrice.toLocaleString('es-CO')}</span>
+                            <span className="price-final">${(item.finalPrice ?? item.price ?? 0).toLocaleString('es-CO')}</span>
                           )}
-                          <span className="price-qty">× {item.quantity}</span>
-                          <span className="price-subtotal">${item.subtotal.toLocaleString('es-CO')}</span>
+                          <span className="price-qty">× {item.quantity ?? 1}</span>
+                          <span className="price-subtotal">${(item.subtotal ?? 0).toLocaleString('es-CO')}</span>
                         </div>
 
                         {/* Warranty block */}

@@ -84,12 +84,13 @@
 
 .btn-back {
   background: transparent;
-  border: 1px solid #444;
-  color: #aaa;
-  padding: 7px 16px;
-  border-radius: 6px;
+  border: 2px solid #666;
+  color: #ddd;
+  padding: 10px 22px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
   transition: all 0.2s;
   white-space: nowrap;
 }
@@ -485,7 +486,7 @@
   .approvals-main { padding: 20px 16px 48px; }
   .approvals-header { padding: 0 16px; height: 56px; }
   .approvals-logo { height: 34px; }
-  .btn-back { font-size: 0.78rem; padding: 6px 10px; }
+  .btn-back { font-size: 0.9rem; padding: 8px 14px; }
   .approval-card-top { padding: 16px; }
   .approval-data { padding: 12px 16px; }
   .approval-actions { padding: 12px 16px; }

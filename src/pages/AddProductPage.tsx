@@ -13,7 +13,7 @@ const LINEAS_SUGERIDAS = [
   // Mazda
   'Mazda Demio', 'Mazda 323', 'Mazda 2', 'Mazda 3', 'Mazda 6', 'Mazda CX-3', 'Mazda CX-5', 'Mazda CX-30', 'Mazda BT-50',
   // Chevrolet
-  'Chevrolet Sail', 'Chevrolet Tico'. 'Chevrolet 7/24', 'Chevrolet Cronos', 'Chevrolet Sprint', 'Chevrolet Spark', 'Chevrolet Aveo', 'Chevrolet Corsa',
+  'Chevrolet Sail', 'Chevrolet Tico', 'Chevrolet 7/24', 'Chevrolet Cronos', 'Chevrolet Sprint', 'Chevrolet Spark', 'Chevrolet Aveo', 'Chevrolet Corsa',
   // Toyota
   'Toyota Corolla', 'Toyota Hilux', 'Toyota Fortuner', 'Toyota RAV4',
   'Toyota Prado', 'Toyota Yaris', 'Toyota Land Cruiser',

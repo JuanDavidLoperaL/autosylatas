@@ -51,11 +51,11 @@
   margin-bottom: 20px;
 }
 
-.field label {
+.login-box .field label {
   display: block;
   font-size: 0.85rem;
   font-weight: 600;
-  color: #C9A027;
+  color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
@@ -68,9 +68,10 @@
   border: 2px solid #333;
   border-radius: 8px;
   font-size: 1rem;
-  color: white;
+  color: #ffffff;
   outline: none;
   transition: border-color 0.2s;
+  box-sizing: border-box;
 }
 
 .field input:focus {
@@ -78,7 +79,40 @@
 }
 
 .field input::placeholder {
-  color: #555;
+  color: #666;
+}
+
+/* Fix browser autofill dark text */
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 1000px #1a1a1a inset;
+  -webkit-text-fill-color: #f0f0f0;
+  caret-color: #f0f0f0;
+}
+
+.password-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrap input {
+  padding-right: 48px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: auto;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #888;
+  display: flex;
+  align-items: center;
 }
 
 .error {

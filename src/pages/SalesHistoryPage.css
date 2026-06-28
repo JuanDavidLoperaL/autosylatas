@@ -78,12 +78,12 @@
 
 .sh-btn-back {
   background: transparent;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  padding: 6px 14px;
-  border-radius: 6px;
+  border: 2px solid #666;
+  color: #ddd;
+  padding: 10px 22px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 0.82rem;
+  font-size: 1rem;
   font-weight: 600;
   transition: all 0.2s;
   white-space: nowrap;

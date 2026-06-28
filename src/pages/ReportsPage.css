@@ -19,13 +19,13 @@
 .reports-header {
   background: var(--black); border-bottom: 3px solid var(--gold);
   padding: 0 24px; height: 64px;
-  display: flex; align-items: center; gap: 20px;
+  display: flex; align-items: center; justify-content: space-between;
   position: sticky; top: 0; z-index: 100;
 }
 .reports-header h1 { color: var(--gold); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.5px; }
 .btn-back {
-  background: transparent; border: 1px solid #444; color: #aaa;
-  padding: 6px 14px; border-radius: 6px; font-size: 0.82rem; cursor: pointer; transition: all 0.15s;
+  background: transparent; border: 2px solid #666; color: #ddd;
+  padding: 10px 22px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.15s; white-space: nowrap;
 }
 .btn-back:hover { border-color: var(--gold); color: var(--gold); }
 

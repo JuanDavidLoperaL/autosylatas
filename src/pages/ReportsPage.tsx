@@ -340,8 +340,8 @@ export default function ReportsPage() {
   return (
     <div className="reports-page">
       <header className="reports-header">
-        <button className="btn-back" onClick={() => navigate('/dashboard')}>← Dashboard</button>
         <h1>Reportes</h1>
+        <button className="btn-back" onClick={() => navigate('/dashboard')}>← Panel</button>
       </header>
 
       <main className="reports-main">
